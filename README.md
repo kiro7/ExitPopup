@@ -48,6 +48,7 @@ Option | Description | Default
 
 The return value of the `ynteractiveExitPopup` function is an object with a public interface to further manipulate the created popup. Here are its methods:
 
+- `open()`: Opens the popup programmatically.
 - `destroy()`: If invoked, all events will be unbound and the DOM structure of the popup removed.
 - `getElement()`: Returns the root element containing the popup.
 

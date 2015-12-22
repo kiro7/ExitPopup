@@ -56,17 +56,7 @@
             pop = {
                 active: false,
                 mouseLeftWindow: function() {
-                    element.classList.add('visible');
-                    pop.detachEvents();
-    
-                    setTimeout(function() {
-                        pop.setDimension('width', options.width);
-                        pop.setDimension('height', options.height);
-                    }, 20);
-    
-                    setTimeout(function() {
-                        element.classList.add('finished');
-                    }, 200);
+                    pop.open();
                 },
                 setDimension: function(dimension, value) {
                     if (value.toString().indexOf('%') === -1) {
@@ -95,6 +85,19 @@
                 },
                 detachEvents: function() {
                     document.removeEventListener('mouseout', pop.mouseLeftWindow);
+                },
+                open: function() {
+                    element.classList.add('visible');
+                    pop.detachEvents();
+
+                    setTimeout(function() {
+                        pop.setDimension('width', options.width);
+                        pop.setDimension('height', options.height);
+                    }, 20);
+
+                    setTimeout(function() {
+                        element.classList.add('finished');
+                    }, 200);
                 },
                 destroy: function() {
                     if (this.active) {
@@ -147,6 +150,7 @@
         
         //return object with public interface
         return {
+            open: pop.open,
             destroy: pop.destroy,
             getElement: function() {
                 return element;
