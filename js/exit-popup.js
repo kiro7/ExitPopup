@@ -55,8 +55,15 @@
             //the popup object
             pop = {
                 active: false,
-                mouseLeftWindow: function() {
-                    pop.open();
+                mouseLeftWindow: function(e) {
+                    var from, to;
+                    
+                    e = e ? e : window.event;
+                    from = e.relatedTarget || e.toElement;
+
+                    if (!from || from.nodeName === "HTML") {
+                        pop.open();
+                    }
                 },
                 setDimension: function(dimension, value) {
                     if (value.toString().indexOf('%') === -1) {
@@ -71,7 +78,7 @@
                         e.preventDefault();
                     }
                     
-                    document.addEventListener('mouseout', pop.mouseLeftWindow);
+                    document.addEventListener('mouseout', pop.mouseLeftWindow, false);
                     closeBt.addEventListener('click', close);
                     
                     if (options.closeOnOutsideClick) {
