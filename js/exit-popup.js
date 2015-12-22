@@ -94,12 +94,14 @@
                     document.removeEventListener('mouseout', pop.mouseLeftWindow);
                 },
                 open: function() {
+                    var self = this;
+                    
                     element.classList.add('visible');
-                    pop.detachEvents();
+                    self.detachEvents();
 
                     setTimeout(function() {
-                        pop.setDimension('width', options.width);
-                        pop.setDimension('height', options.height);
+                        self.setDimension('width', options.width);
+                        self.setDimension('height', options.height);
                     }, 20);
 
                     setTimeout(function() {
@@ -157,8 +159,8 @@
         
         //return object with public interface
         return {
-            open: pop.open,
-            destroy: pop.destroy,
+            open: delegate(pop, pop.open),
+            destroy: delegate(pop, pop.destroy),
             getElement: function() {
                 return element;
             }
