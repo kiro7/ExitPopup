@@ -39,6 +39,7 @@ Option | Description | Default
 `width`|Width of the popup in px or percent|40%
 `height`|Height of the popup in px or percent|30%
 `cookieIdentifier`|Name of the cookie to store whether the popup has been closed once. If this cookie is 1, the popup will not appear again|ynteractiveExitPopup
+`cookieValidity`|Number of days to remember if the popup was closed|7
 `closeOnOutsideClick`|If true the popup will close when clicked outside|true
 `delay`|Delay in ms until the popup is registered|0
 `debug`|If true, no cookie will be set to allow quick testing|false

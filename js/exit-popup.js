@@ -11,6 +11,7 @@
                 height: '30%', //popup height
                 target: '#ynteractive-exit-popup', //popup selector
                 cookieIdentifier: 'ynteractiveExitPopup', //name of the cookie
+                cookieValidity: 7, //days
                 closeOnOutsideClick: true, //close popup if user clicks outside
                 delay: 0, //delay in ms until the popup is registered
                 debug: false //if true, the cookie will not be set
@@ -104,7 +105,7 @@
                         }, 200);
                         
                         if (!options.debug) {
-                            cookies.set(options.cookieIdentifier, 1, 7);
+                            cookies.set(options.cookieIdentifier, 1, options.cookieValidity);
                         }
                     }
                 }
