@@ -1,5 +1,5 @@
 .ynteractive-exit-popup {
-    display: none;
+    display: none !important;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -10,7 +10,7 @@
 }
 
 .ynteractive-exit-popup.visible {
-    display: block;
+    display: block !important;
 }
 
 .ynteractive-exit-popup-inner {
